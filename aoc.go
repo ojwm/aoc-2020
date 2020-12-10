@@ -13,6 +13,6 @@ func main() {
 	if err != nil {
 		log.Println(err)
 	}
-	expenses := readinput.GetInts(path + "/day1.in")
+	expenses := readinput.GetInts(path + "/expenses.in")
 	fmt.Println(expensereport.Find(expenses, 2020))
 }
