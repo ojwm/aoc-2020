@@ -10,9 +10,9 @@ func Validate(passwords []string, policy string) int {
 	validCount := 0
 	for _, val := range passwords {
 		entry := strings.Split(val, " ")
-		countRange := strings.Split(entry[0], "-")
-		index1, _ := strconv.Atoi(countRange[0])
-		index2, _ := strconv.Atoi(countRange[1])
+		indexes := strings.Split(entry[0], "-")
+		index1, _ := strconv.Atoi(indexes[0])
+		index2, _ := strconv.Atoi(indexes[1])
 		character := entry[1][0:1]
 		passwordCharacters := strings.Split(entry[2], "")
 		if policy == "sled" {
