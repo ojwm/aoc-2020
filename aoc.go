@@ -41,13 +41,10 @@ func day2() {
 func day3() {
 	slope := readinput.GetStrings(path+"/input/day3/slope.in", true)
 	fmt.Println("3.1: ", navigation.Traverse(slope, 3, 1, false))
-	trajectories := [][]int{{1, 1, 0}, {3, 1, 0}, {5, 1, 0}, {7, 1, 0}, {1, 2, 0}}
-	for _, val := range trajectories {
-		val[2] = navigation.Traverse(slope, val[0], val[1], false)
-	}
+	trajectories := [][]int{{1, 1}, {3, 1}, {5, 1}, {7, 1}, {1, 2}}
 	product := 1
 	for _, val := range trajectories {
-		product = product * val[2]
+		product *= navigation.Traverse(slope, val[0], val[1], false)
 	}
 	fmt.Println("3.2: ", product)
 }
