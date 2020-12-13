@@ -26,7 +26,6 @@ func main() {
 }
 
 func day1() {
-	fmt.Println("Path: ", path)
 	expenses := readinput.GetInts(path+"/input/day1/expenses.in", true)
 	sum := 2020
 	fmt.Println("1.1: ", expensereport.Find(expenses, sum, 2))
