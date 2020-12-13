@@ -26,7 +26,6 @@ func main() {
 }
 
 func day1() {
-	fmt.Println("Path: ", path)
 	expenses := readinput.GetInts(path+"/input/day1/expenses.in", true)
 	sum := 2020
 	fmt.Println("1.1: ", expensereport.Find(expenses, sum, 2))
@@ -42,22 +41,17 @@ func day2() {
 func day3() {
 	slope := readinput.GetStrings(path+"/input/day3/slope.in", true)
 	fmt.Println("3.1: ", navigation.Traverse(slope, 3, 1, false))
-	trajectories := [][]int{{1, 1, 0}, {3, 1, 0}, {5, 1, 0}, {7, 1, 0}, {1, 2, 0}}
-	for _, val := range trajectories {
-		val[2] = navigation.Traverse(slope, val[0], val[1], false)
-	}
+	trajectories := [][]int{{1, 1}, {3, 1}, {5, 1}, {7, 1}, {1, 2}}
 	product := 1
 	for _, val := range trajectories {
-		product = product * val[2]
+		product *= navigation.Traverse(slope, val[0], val[1], false)
 	}
 	fmt.Println("3.2: ", product)
 }
 
 func day4() {
 	documents := readinput.GetStrings(path+"/input/day4/documents.in", false)
-	cleanedDocuments := document.CleanDocuments(documents)
-	validFormatDocuments := document.ValidateFormat(cleanedDocuments)
+	validFormatDocuments := document.ValidateFormat(document.CleanDocuments(documents))
 	fmt.Println("4.1: ", len(validFormatDocuments))
-	validContentDocuments := document.ValidateContent(validFormatDocuments)
-	fmt.Println("4.2: ", len(validContentDocuments))
+	fmt.Println("4.2: ", len(document.ValidateContent(validFormatDocuments)))
 }
