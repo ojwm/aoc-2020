@@ -51,9 +51,7 @@ func day3() {
 
 func day4() {
 	documents := readinput.GetStrings(path+"/input/day4/documents.in", false)
-	cleanedDocuments := document.CleanDocuments(documents)
-	validFormatDocuments := document.ValidateFormat(cleanedDocuments)
+	validFormatDocuments := document.ValidateFormat(document.CleanDocuments(documents))
 	fmt.Println("4.1: ", len(validFormatDocuments))
-	validContentDocuments := document.ValidateContent(validFormatDocuments)
-	fmt.Println("4.2: ", len(validContentDocuments))
+	fmt.Println("4.2: ", len(document.ValidateContent(validFormatDocuments)))
 }
