@@ -1,6 +1,7 @@
 package main
 
 import (
+	"boarding"
 	"document"
 	"expensereport"
 	"fmt"
@@ -23,6 +24,7 @@ func main() {
 	day2()
 	day3()
 	day4()
+	day5()
 }
 
 func day1() {
@@ -54,4 +56,9 @@ func day4() {
 	validFormatDocuments := document.ValidateFormat(document.CleanDocuments(documents))
 	fmt.Println("4.1: ", len(validFormatDocuments))
 	fmt.Println("4.2: ", len(document.ValidateContent(validFormatDocuments)))
+}
+
+func day5() {
+	passes := readinput.GetStrings(path+"/input/day5/boardingpasses.in", false)
+	fmt.Println("5.1: ", boarding.GetHighestSeat(passes, 128, 8))
 }
